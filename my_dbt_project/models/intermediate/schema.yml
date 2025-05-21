@@ -6,7 +6,13 @@ models:
         tests:
           - not_null
           - unique
+      
       - name: total_orders
         description: "Total number of orders placed by the user"
+        tests:
+          - test_total_orders_positive.sql
+           
       - name: avg_order_value
         description: "Average amount spent per order"
+        tests:
+            - test_avg_lte_total_spent
