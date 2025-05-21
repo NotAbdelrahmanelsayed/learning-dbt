@@ -1,0 +1,14 @@
+models:
+  - name: fct_user_metrics
+    description: "user metrics includes total orders, total amount and active or inactive user"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      
+      - name: user_status
+        tests:
+          - accepted_values: 
+              values: ["active", "inactive"]
+      

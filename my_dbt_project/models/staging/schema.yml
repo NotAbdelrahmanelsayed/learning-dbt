@@ -1,0 +1,31 @@
+
+version: 2
+
+sources:
+  - name: public 
+    tables:
+    - name: raw_orders
+    - name: raw_users
+
+models:
+  - name: stg_orders
+    description: "Cleaned version of raw_orders"
+    columns: 
+      - name: order_id 
+        tests: 
+          - not_null
+          - unique
+
+  - name: stg_users
+    description: "Cleaned version of raw_users"
+    columns:
+      - name: id
+        tests:
+        - not_null
+        - unique
+      
+      - name: email_provider
+        description: "domain part of user email"
+        tests:
+          - accepted_values:
+              values: ['example.com']

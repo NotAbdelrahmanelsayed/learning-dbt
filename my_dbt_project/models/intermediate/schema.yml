@@ -1,0 +1,12 @@
+models: 
+  - name: int_user_orders
+    description: "Aggregated user metrics from stg_orders and stg_users"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
+      - name: total_orders
+        description: "Total number of orders placed by the user"
+      - name: avg_order_value
+        description: "Average amount spent per order"
